@@ -1,0 +1,14 @@
+workflow:
+ rules:
+   - if: '$CI_PIPELINE_SOURCE == "push"'
+     when: never
+   - when: always
+
+g2g-report:
+  stage: build
+  artifacts:
+    paths:
+      - public
+  script:
+    - git submodule update --init --recursive
+    - ./g2g-report.py --dist dom0-fc32 vm-fc32 vm-centos8 vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
