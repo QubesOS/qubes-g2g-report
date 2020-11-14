@@ -72,7 +72,8 @@ def main(args=None):
                 release].get("branch", None)
             distfile_data["components"][component]["releases"][release][
                 "pipeline"] = \
-                cli.get_pipeline('qubes-' + component, branch)
+                cli.get_pipeline('qubes-' + component, branch,
+                                 only_finished=True)
 
     qubes_status = {}
     for dist in args.dist:
