@@ -35,7 +35,7 @@ parser.add_argument('--components', action='store', required=False,
                     nargs='+', help='Components to process')
 parser.add_argument('--gitlab', action='store', required=False,
                     help='Gitlab instance URL',
-                    default="https://gitlab.notset.fr")
+                    default="https://gitlab.com")
 parser.add_argument('--verbose', action='store_true')
 parser.add_argument('--debug', action='store_true')
 
@@ -72,7 +72,7 @@ def main(args=None):
                 release].get("branch", None)
             distfile_data["components"][component]["releases"][release][
                 "pipeline"] = \
-                cli.get_pipeline('qubes-' + component, branch,
+                cli.get_pipeline('QubesOS', 'qubes-' + component, branch,
                                  only_finished=True)
 
     qubes_status = {}
