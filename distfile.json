@@ -4,7 +4,7 @@
             "dom0": [
                 "fc25"
             ],
-            "vms": [
+            "vm": [
                 "fc30",
                 "fc31",
                 "fc32",
@@ -23,7 +23,7 @@
             "dom0": [
                 "fc32"
             ],
-            "vms": [
+            "vm": [
                 "fc32",
                 "fc33",
                 "centos7",
@@ -61,7 +61,7 @@
                             "xen-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "xen",
                             "python2-xen",
@@ -186,7 +186,7 @@
                             "xen-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -292,7 +292,7 @@
                             "libvirt-python-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -336,13 +336,12 @@
                             "libvirt-devel",
                             "libvirt-debuginfo",
                             "libvirt-debugsource",
-                            "libvirt-python",
                             "python3-libvirt",
                             "libvirt-python-debuginfo",
                             "libvirt-python-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -370,7 +369,7 @@
                             "qubes-libvchan-xen-devel"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-libvchan-xen",
                             "qubes-libvchan-xen-debuginfo",
@@ -428,7 +427,7 @@
                             "qubes-libvchan-xen-devel"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-libvchan-xen",
                             "qubes-libvchan-xen-debuginfo",
@@ -485,7 +484,7 @@
                             "qubes-db-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-db",
                             "qubes-db-libs",
@@ -570,7 +569,7 @@
                             "qubes-db-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-db",
                             "qubes-db-libs",
@@ -632,25 +631,6 @@
         "core-qrexec": {
             "iso-component": 1,
             "releases": {
-                "4.0": {
-                    "branch": "release4.0",
-                    "dom0": {
-                        "fc25": []
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
-                    }
-                },
                 "4.1": {
                     "branch": "master",
                     "dom0": {
@@ -665,7 +645,7 @@
                             "qubes-core-qrexec-dom0-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-core-qrexec",
                             "qubes-core-qrexec-libs",
@@ -743,7 +723,7 @@
                             "qubes-kernel-vm-support"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-utils",
                             "python2-qubesimgconverter",
@@ -836,7 +816,7 @@
                             "qubes-kernel-vm-support"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-utils",
                             "python3-qubesimgconverter",
@@ -902,7 +882,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -921,7 +901,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -943,7 +923,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -968,7 +948,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -992,70 +972,27 @@
                     "branch": "master",
                     "dom0": {
                         "fc25": [
-                            "python-Quamash",
                             "python3-Quamash"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
-                            "python-Quamash",
                             "python3-Quamash"
                         ],
                         "fc31": [
-                            "python-Quamash",
                             "python3-Quamash"
                         ],
                         "fc32": [
-                            "python-Quamash",
                             "python3-Quamash"
                         ],
-                        "centos7": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
-                        "centos8": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
+                        "centos7": [],
+                        "centos8": [],
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": []
-                    }
-                },
-                "4.1": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc32": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ]
-                    },
-                    "vms": {
-                        "fc32": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
-                        "fc33": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
-                        "centos7": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
-                        "centos8": [
-                            "python-Quamash",
-                            "python3-Quamash"
-                        ],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
                     }
                 }
             }
@@ -1066,34 +1003,28 @@
                     "branch": "master",
                     "dom0": {
                         "fc25": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "fc31": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "fc32": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "centos7": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "centos8": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
@@ -1109,29 +1040,24 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "fc33": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "centos7": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
                         "centos8": [
-                            "python-objgraph",
                             "python3-objgraph",
                             "python-objgraph-doc"
                         ],
@@ -1152,7 +1078,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1174,7 +1100,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1195,27 +1121,18 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-u2flib-host",
                             "python3-u2flib-host"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "python-u2flib-host",
                             "python3-u2flib-host"
                         ],
                         "fc33": [
-                            "python-u2flib-host",
                             "python3-u2flib-host"
                         ],
-                        "centos7": [
-                            "python-u2flib-host",
-                            "python3-u2flib-host"
-                        ],
-                        "centos8": [
-                            "python-u2flib-host",
-                            "python3-u2flib-host"
-                        ],
+                        "centos7": [],
+                        "centos8": [],
                         "buster": [
                             "python3-u2flib-host"
                         ],
@@ -1236,7 +1153,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1245,8 +1162,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -1254,25 +1169,20 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-qasync",
                             "python3-qasync"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "python-qasync",
                             "python3-qasync"
                         ],
                         "fc33": [
-                            "python-qasync",
                             "python3-qasync"
                         ],
                         "centos7": [
-                            "python-qasync",
                             "python3-qasync"
                         ],
                         "centos8": [
-                            "python-qasync",
                             "python3-qasync"
                         ],
                         "buster": [
@@ -1295,29 +1205,23 @@
                     "branch": "master",
                     "dom0": {
                         "fc25": [
-                            "python-panflute",
                             "python3-panflute"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "fc31": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "fc32": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "centos7": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "centos8": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "stretch": [],
@@ -1332,25 +1236,20 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-panflute",
                             "python3-panflute"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "fc33": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "centos7": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "centos8": [
-                            "python-panflute",
                             "python3-panflute"
                         ],
                         "buster": [],
@@ -1375,7 +1274,7 @@
                             "qubes-core-dom0-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1396,7 +1295,7 @@
                             "qubes-core-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1423,7 +1322,7 @@
                             "python3-qubesadmin"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-core-admin-client",
                             "python2-qubesadmin",
@@ -1477,7 +1376,7 @@
                             "python3-qubesadmin"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-core-admin-client",
                             "python3-qubesadmin"
@@ -1520,7 +1419,7 @@
                             "qubes-core-admin-addon-whonix"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1541,7 +1440,7 @@
                             "qubes-core-admin-addon-whonix"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1570,7 +1469,7 @@
                             "qubes-core-dom0-vaio-fixes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1595,7 +1494,7 @@
                             "qubes-core-dom0-linux-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1617,7 +1516,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-core-agent",
                             "python2-dnf-plugins-qubes-hooks",
@@ -1631,6 +1530,7 @@
                             "qubes-core-agent-thunar",
                             "qubes-core-agent-debuginfo",
                             "qubes-core-agent-debugsource",
+                            "qubes-core-agent-sysvinit",
                             "qubes-core-agent-systemd"
                         ],
                         "fc31": [
@@ -1646,6 +1546,7 @@
                             "qubes-core-agent-thunar",
                             "qubes-core-agent-debuginfo",
                             "qubes-core-agent-debugsource",
+                            "qubes-core-agent-sysvinit",
                             "qubes-core-agent-systemd"
                         ],
                         "fc32": [
@@ -1661,6 +1562,7 @@
                             "qubes-core-agent-thunar",
                             "qubes-core-agent-debuginfo",
                             "qubes-core-agent-debugsource",
+                            "qubes-core-agent-sysvinit",
                             "qubes-core-agent-systemd"
                         ],
                         "centos7": [
@@ -1676,6 +1578,7 @@
                             "qubes-core-agent-thunar",
                             "qubes-core-agent-debuginfo",
                             "qubes-core-agent-debugsource",
+                            "qubes-core-agent-sysvinit",
                             "qubes-core-agent-systemd"
                         ],
                         "centos8": [
@@ -1691,6 +1594,7 @@
                             "qubes-core-agent-thunar",
                             "qubes-core-agent-debuginfo",
                             "qubes-core-agent-debugsource",
+                            "qubes-core-agent-sysvinit",
                             "qubes-core-agent-systemd"
                         ],
                         "stretch": [
@@ -1733,7 +1637,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-core-agent",
                             "python2-dnf-plugins-qubes-hooks",
@@ -1826,7 +1730,7 @@
                             "microcode_ctl"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1847,7 +1751,7 @@
                             "microcode_ctl"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1895,7 +1799,7 @@
                             "netronome-firmware"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1939,7 +1843,7 @@
                             "netronome-firmware"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -1966,7 +1870,7 @@
                             "kernel-414-qubes-vm"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -1975,8 +1879,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -1989,7 +1891,7 @@
                             "kernel-qubes-vm"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2015,7 +1917,7 @@
                             "qubes-artwork-efi"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2039,7 +1941,7 @@
                             "qubes-artwork-anaconda"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-artwork",
                             "qubes-artwork-plymouth",
@@ -2086,7 +1988,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2095,8 +1997,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -2104,7 +2004,6 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "grub2",
                             "grub2-common",
                             "grub2-tools",
                             "grub2-tools-efi",
@@ -2118,12 +2017,11 @@
                             "grub2-efi-ia32-cdboot",
                             "grub2-pc",
                             "grub2-pc-modules",
-                            "grub2-pc-tools",
                             "grub2-debuginfo",
                             "grub2-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2146,7 +2044,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2155,8 +2053,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -2167,7 +2063,7 @@
                             "grub2-qubes-theme"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2192,7 +2088,7 @@
                             "qubes-gui-common-devel"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-gui-common-devel"
                         ],
@@ -2229,7 +2125,7 @@
                             "qubes-gui-common-devel"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-gui-common-devel"
                         ],
@@ -2268,7 +2164,7 @@
                             "qubes-gui-dom0-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2294,7 +2190,7 @@
                             "qubes-gui-daemon-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-gui-daemon",
                             "qubes-gui-dom0",
@@ -2350,7 +2246,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-gui-agent",
                             "pulseaudio-qubes",
@@ -2420,7 +2316,7 @@
                             "qubes-gui-agent-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-gui-agent",
                             "pulseaudio-qubes",
@@ -2480,7 +2376,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2499,7 +2395,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2521,7 +2417,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2530,8 +2426,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -2544,7 +2438,7 @@
                             "seavgabios-bin"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2566,7 +2460,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2575,8 +2469,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -2587,7 +2479,7 @@
                             "xen-hvm-stubdom-legacy"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2612,7 +2504,7 @@
                             "xen-hvm-stubdom-linux"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -2633,7 +2525,7 @@
                             "xen-hvm-stubdom-linux"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -2658,7 +2550,7 @@
                             "qubes-gpg-split-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-gpg-split",
                             "qubes-gpg-split-tests",
@@ -2713,7 +2605,7 @@
                             "qubes-gpg-split-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-gpg-split",
                             "qubes-gpg-split-tests",
@@ -2761,7 +2653,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "thunderbird-qubes"
                         ],
@@ -2796,7 +2688,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "thunderbird-qubes"
                         ],
@@ -2833,7 +2725,7 @@
                             "qubes-pdf-converter-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-pdf-converter"
                         ],
@@ -2866,7 +2758,7 @@
                             "qubes-pdf-converter-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-pdf-converter"
                         ],
@@ -2901,7 +2793,7 @@
                             "qubes-img-converter-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-img-converter"
                         ],
@@ -2938,7 +2830,7 @@
                             "qubes-img-converter-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-img-converter"
                         ],
@@ -2979,7 +2871,7 @@
                             "qubes-input-proxy-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-input-proxy",
                             "qubes-input-proxy-sender",
@@ -3043,7 +2935,7 @@
                             "qubes-input-proxy-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-input-proxy",
                             "qubes-input-proxy-sender",
@@ -3098,7 +2990,7 @@
                             "qubes-usb-proxy-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-usb-proxy"
                         ],
@@ -3135,7 +3027,7 @@
                             "qubes-usb-proxy-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-usb-proxy"
                         ],
@@ -3169,7 +3061,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-snapd-helper"
                         ],
@@ -3204,7 +3096,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-snapd-helper"
                         ],
@@ -3238,7 +3130,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-app-shutdown-idle"
                         ],
@@ -3273,7 +3165,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-app-shutdown-idle"
                         ],
@@ -3309,7 +3201,7 @@
                             "qubes-yubikey-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3330,7 +3222,7 @@
                             "qubes-yubikey-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -3354,7 +3246,7 @@
                             "qubes-u2f-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-u2f"
                         ],
@@ -3389,7 +3281,7 @@
                             "qubes-u2f-dom0"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-u2f"
                         ],
@@ -3421,7 +3313,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3440,7 +3332,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -3462,37 +3354,31 @@
                     "branch": "release4.0",
                     "dom0": {
                         "fc25": [
-                            "qubes-dom0-meta-packages",
                             "qubes-repo-contrib"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
-                            "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
                             "qubes-vm-recommended",
                             "qubes-repo-contrib"
                         ],
                         "fc31": [
-                            "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
                             "qubes-vm-recommended",
                             "qubes-repo-contrib"
                         ],
                         "fc32": [
-                            "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
                             "qubes-vm-recommended",
                             "qubes-repo-contrib"
                         ],
                         "centos7": [
-                            "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
                             "qubes-vm-recommended",
                             "qubes-repo-contrib"
                         ],
                         "centos8": [
-                            "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
                             "qubes-vm-recommended",
                             "qubes-repo-contrib"
@@ -3525,7 +3411,7 @@
                             "qubes-repo-contrib"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-vm-meta-packages",
                             "qubes-vm-dependencies",
@@ -3584,7 +3470,7 @@
                             "qubes-manager"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3605,7 +3491,7 @@
                             "qubes-manager"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-manager"
                         ],
@@ -3643,7 +3529,7 @@
                             "qubes-menus"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-desktop-linux-common",
                             "qubes-menus"
@@ -3689,7 +3575,7 @@
                             "qubes-menus"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-desktop-linux-common",
                             "qubes-menus"
@@ -3738,7 +3624,6 @@
                             "kde-baseapps-debuginfo",
                             "kde-baseapps-debugsource",
                             "kde-settings",
-                            "kde-settings-minimal",
                             "kde-settings-plasma",
                             "kde-settings-pulseaudio",
                             "qt-settings",
@@ -3746,7 +3631,7 @@
                             "plasma-breeze-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3768,7 +3653,7 @@
                             "plasma-breeze-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "kde-settings-qubes",
                             "plasma-breeze-qubes"
@@ -3777,14 +3662,8 @@
                             "kde-settings-qubes",
                             "plasma-breeze-qubes"
                         ],
-                        "centos7": [
-                            "kde-settings-qubes",
-                            "plasma-breeze-qubes"
-                        ],
-                        "centos8": [
-                            "kde-settings-qubes",
-                            "plasma-breeze-qubes"
-                        ],
+                        "centos7": [],
+                        "centos8": [],
                         "buster": [],
                         "bullseye": [],
                         "whonix-gateway-15": [],
@@ -3812,7 +3691,7 @@
                             "xfwm4-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3833,7 +3712,7 @@
                             "xfce4-settings-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "xfce4-settings-qubes"
                         ],
@@ -3868,7 +3747,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3877,8 +3756,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -3891,7 +3768,7 @@
                             "xfwm4-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "xfwm4",
                             "xfwm4-debuginfo",
@@ -3937,7 +3814,7 @@
                             "i3-settings-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -3963,7 +3840,7 @@
                             "i3-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "i3",
                             "i3-doc",
@@ -4014,7 +3891,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4023,8 +3900,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -4035,7 +3910,7 @@
                             "i3-settings-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "i3-settings-qubes"
                         ],
@@ -4074,7 +3949,7 @@
                             "awesome-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4098,7 +3973,7 @@
                             "awesome-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "awesome",
                             "awesome-doc",
@@ -4138,7 +4013,7 @@
                             "qubes-desktop-linux-manager"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4159,7 +4034,7 @@
                             "qubes-desktop-linux-manager"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4181,7 +4056,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "grubby-dummy"
                         ],
@@ -4208,7 +4083,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "grubby-dummy"
                         ],
@@ -4243,7 +4118,7 @@
                             "grub2-xen-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4268,7 +4143,7 @@
                             "grub2-xen-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4290,29 +4165,23 @@
                     "branch": "master",
                     "dom0": {
                         "fc25": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "fc31": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "fc32": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "centos7": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "centos8": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "stretch": [
@@ -4333,25 +4202,20 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "fc33": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "centos7": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "centos8": [
-                            "python-gbulb",
                             "python3-gbulb"
                         ],
                         "buster": [
@@ -4380,7 +4244,7 @@
                             "scrypt-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "scrypt",
                             "scrypt-debuginfo",
@@ -4423,7 +4287,7 @@
                             "scrypt-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "scrypt",
                             "scrypt-debuginfo",
@@ -4461,7 +4325,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4486,7 +4350,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4514,7 +4378,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4539,7 +4403,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4567,7 +4431,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4595,7 +4459,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4626,7 +4490,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4653,7 +4517,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4680,40 +4544,13 @@
             "releases": {
                 "4.0": {
                     "branch": "master",
-                    "dom0": {
-                        "fc25": []
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
-                    }
+                    "dom0": {},
+                    "vm": {}
                 },
                 "4.1": {
                     "branch": "master",
-                    "dom0": {
-                        "fc32": []
-                    },
-                    "vms": {
-                        "fc32": [],
-                        "fc33": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
-                    }
+                    "dom0": {},
+                    "vm": {}
                 }
             }
         },
@@ -4751,7 +4588,7 @@
                             "qubes-dom0-dist-upgrade"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4770,7 +4607,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4793,7 +4630,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -4802,8 +4639,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -4815,7 +4650,7 @@
                             "qubes-release-notes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4841,7 +4676,7 @@
                             "python3-kickstart"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4863,12 +4698,11 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "python-blivet",
                             "blivet-data",
                             "python3-blivet"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4899,7 +4733,7 @@
                             "composer-cli"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4924,7 +4758,7 @@
                             "lorax-templates-qubes"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4959,7 +4793,7 @@
                             "anaconda-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -4984,7 +4818,7 @@
                             "qubes-anaconda-addon"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5006,7 +4840,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5025,7 +4859,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5047,7 +4881,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5066,7 +4900,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5088,7 +4922,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5097,8 +4931,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -5111,7 +4943,7 @@
                             "tpm-extra-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5133,7 +4965,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5142,8 +4974,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -5154,7 +4984,7 @@
                             "trousers-changer"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5180,7 +5010,7 @@
                             "trousers-changer"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5201,7 +5031,7 @@
                             "anti-evil-maid"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5222,7 +5052,6 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "dummy-psu",
                             "dummy-psu-module",
                             "dummy-psu-sender",
                             "dummy-psu-receiver",
@@ -5230,9 +5059,8 @@
                             "dummy-psu-debugsource"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "dummy-psu",
                             "dummy-psu-module",
                             "dummy-psu-sender",
                             "dummy-psu-receiver",
@@ -5240,7 +5068,6 @@
                             "dummy-psu-debugsource"
                         ],
                         "fc33": [
-                            "dummy-psu",
                             "dummy-psu-module",
                             "dummy-psu-sender",
                             "dummy-psu-receiver",
@@ -5248,7 +5075,6 @@
                             "dummy-psu-debugsource"
                         ],
                         "centos7": [
-                            "dummy-psu",
                             "dummy-psu-module",
                             "dummy-psu-sender",
                             "dummy-psu-receiver",
@@ -5256,7 +5082,6 @@
                             "dummy-psu-debugsource"
                         ],
                         "centos8": [
-                            "dummy-psu",
                             "dummy-psu-module",
                             "dummy-psu-sender",
                             "dummy-psu-receiver",
@@ -5279,85 +5104,32 @@
                     "branch": "master",
                     "dom0": {
                         "fc32": [
-                            "dummy-backlight",
                             "dummy-backlight-module",
                             "dummy-backlight-dom0",
                             "dummy-backlight-vm"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
-                            "dummy-backlight",
                             "dummy-backlight-module",
                             "dummy-backlight-dom0",
                             "dummy-backlight-vm"
                         ],
                         "fc33": [
-                            "dummy-backlight",
                             "dummy-backlight-module",
                             "dummy-backlight-dom0",
                             "dummy-backlight-vm"
                         ],
                         "centos7": [
-                            "dummy-backlight",
                             "dummy-backlight-module",
                             "dummy-backlight-dom0",
                             "dummy-backlight-vm"
                         ],
                         "centos8": [
-                            "dummy-backlight",
                             "dummy-backlight-module",
                             "dummy-backlight-dom0",
                             "dummy-backlight-vm"
                         ],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
-                    }
-                }
-            }
-        },
-        "template-whonix": {
-            "dists": [
-                "whonix"
-            ],
-            "plugin": 1,
-            "maintainers": [
-                "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA"
-            ],
-            "releases": {
-                "4.0": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc25": []
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
-                    }
-                },
-                "4.1": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc32": []
-                    },
-                    "vms": {
-                        "fc32": [],
-                        "fc33": [],
-                        "centos7": [],
-                        "centos8": [],
                         "buster": [],
                         "bullseye": [],
                         "whonix-gateway-15": [],
@@ -5382,7 +5154,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5391,8 +5163,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -5401,57 +5171,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
-                    }
-                }
-            }
-        },
-        "builder": {
-            "plugin": 1,
-            "releases": {
-                "4.0": {
-                    "branch": "release4.0",
-                    "dom0": {
-                        "fc25": []
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
-                    }
-                },
-                "4.1": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc32": []
-                    },
-                    "vms": {
-                        "fc32": [],
-                        "fc33": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -5476,7 +5202,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5495,7 +5221,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5522,7 +5248,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5541,81 +5267,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
-                        "fc32": [],
-                        "fc33": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
-                    }
-                }
-            }
-        },
-        "builder-archlinux": {
-            "dists": [
-                "archlinux"
-            ],
-            "plugin": 1,
-            "releases": {
-                "4.0": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc25": []
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
-                    }
-                },
-                "4.1": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc32": []
-                    },
-                    "vms": {
-                        "fc32": [],
-                        "fc33": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": [],
-                        "gentoo": []
-                    }
-                }
-            }
-        },
-        "builder-gentoo": {
-            "dists": [
-                "gentoo"
-            ],
-            "plugin": 1,
-            "maintainers": [
-                "9FA64B92F95E706BF28E2CA6484010B5CDC576E2"
-            ],
-            "releases": {
-                "4.1": {
-                    "branch": "master",
-                    "dom0": {
-                        "fc32": []
-                    },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5638,7 +5290,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5657,7 +5309,7 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -5683,7 +5335,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -5692,8 +5344,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -5702,15 +5352,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -5731,7 +5379,7 @@
                             "qubes-mgmt-salt-dom0-formulas"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-mgmt-salt",
                             "qubes-mgmt-salt-config",
@@ -5819,14 +5467,12 @@
                             "qubes-mgmt-salt-dom0-formulas"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-mgmt-salt",
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-shared-formulas",
                             "qubes-mgmt-salt-admin-tools",
-                            "qubes-mgmt-salt-vm",
-                            "qubes-mgmt-salt-vm-formulas",
                             "qubes-mgmt-salt-vm-connector"
                         ],
                         "fc33": [
@@ -5834,8 +5480,6 @@
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-shared-formulas",
                             "qubes-mgmt-salt-admin-tools",
-                            "qubes-mgmt-salt-vm",
-                            "qubes-mgmt-salt-vm-formulas",
                             "qubes-mgmt-salt-vm-connector"
                         ],
                         "centos7": [
@@ -5843,8 +5487,6 @@
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-shared-formulas",
                             "qubes-mgmt-salt-admin-tools",
-                            "qubes-mgmt-salt-vm",
-                            "qubes-mgmt-salt-vm-formulas",
                             "qubes-mgmt-salt-vm-connector"
                         ],
                         "centos8": [
@@ -5852,29 +5494,21 @@
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-shared-formulas",
                             "qubes-mgmt-salt-admin-tools",
-                            "qubes-mgmt-salt-vm",
-                            "qubes-mgmt-salt-vm-formulas",
                             "qubes-mgmt-salt-vm-connector"
                         ],
                         "buster": [
                             "qubes-mgmt-salt",
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-dom0",
-                            "qubes-mgmt-salt-vm",
                             "qubes-mgmt-salt-dom0-formulas",
-                            "qubes-mgmt-salt-vm-formulas",
-                            "qubes-mgmt-salt-vm-connector",
-                            "qubes-mgmt-salt-shared-formulas"
+                            "qubes-mgmt-salt-vm-connector"
                         ],
                         "bullseye": [
                             "qubes-mgmt-salt",
                             "qubes-mgmt-salt-config",
                             "qubes-mgmt-salt-dom0",
-                            "qubes-mgmt-salt-vm",
                             "qubes-mgmt-salt-dom0-formulas",
-                            "qubes-mgmt-salt-vm-formulas",
-                            "qubes-mgmt-salt-vm-connector",
-                            "qubes-mgmt-salt-shared-formulas"
+                            "qubes-mgmt-salt-vm-connector"
                         ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
@@ -5894,7 +5528,7 @@
                             "qubes-mgmt-salt-base"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-mgmt-salt-base"
                         ],
@@ -5910,9 +5544,15 @@
                         "centos8": [
                             "qubes-mgmt-salt-base"
                         ],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
+                        "stretch": [
+                            "qubes-mgmt-salt-base"
+                        ],
+                        "buster": [
+                            "qubes-mgmt-salt-base"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": []
@@ -5925,7 +5565,7 @@
                             "qubes-mgmt-salt-base"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-mgmt-salt-base"
                         ],
@@ -5938,8 +5578,12 @@
                         "centos8": [
                             "qubes-mgmt-salt-base"
                         ],
-                        "buster": [],
-                        "bullseye": [],
+                        "buster": [
+                            "qubes-mgmt-salt-base"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": [],
@@ -5958,7 +5602,7 @@
                             "qubes-mgmt-salt-base-topd"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-mgmt-salt-base-topd"
                         ],
@@ -5974,9 +5618,15 @@
                         "centos8": [
                             "qubes-mgmt-salt-base-topd"
                         ],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
+                        "stretch": [
+                            "qubes-mgmt-salt-base-topd"
+                        ],
+                        "buster": [
+                            "qubes-mgmt-salt-base-topd"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base-topd"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": []
@@ -5989,7 +5639,7 @@
                             "qubes-mgmt-salt-base-topd"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-mgmt-salt-base-topd"
                         ],
@@ -6002,8 +5652,12 @@
                         "centos8": [
                             "qubes-mgmt-salt-base-topd"
                         ],
-                        "buster": [],
-                        "bullseye": [],
+                        "buster": [
+                            "qubes-mgmt-salt-base-topd"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base-topd"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": [],
@@ -6022,7 +5676,7 @@
                             "qubes-mgmt-salt-base-config"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [
                             "qubes-mgmt-salt-base-config"
                         ],
@@ -6038,9 +5692,15 @@
                         "centos8": [
                             "qubes-mgmt-salt-base-config"
                         ],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
+                        "stretch": [
+                            "qubes-mgmt-salt-base-config"
+                        ],
+                        "buster": [
+                            "qubes-mgmt-salt-base-config"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base-config"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": []
@@ -6053,7 +5713,7 @@
                             "qubes-mgmt-salt-base-config"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [
                             "qubes-mgmt-salt-base-config"
                         ],
@@ -6066,8 +5726,12 @@
                         "centos8": [
                             "qubes-mgmt-salt-base-config"
                         ],
-                        "buster": [],
-                        "bullseye": [],
+                        "buster": [
+                            "qubes-mgmt-salt-base-config"
+                        ],
+                        "bullseye": [
+                            "qubes-mgmt-salt-base-config"
+                        ],
                         "whonix-gateway-15": [],
                         "whonix-workstation-15": [],
                         "archlinux": [],
@@ -6086,7 +5750,7 @@
                             "qubes-mgmt-salt-dom0-qvm"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6107,7 +5771,7 @@
                             "qubes-mgmt-salt-dom0-qvm"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -6132,7 +5796,7 @@
                             "qubes-mgmt-salt-dom0-virtual-machines"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6153,7 +5817,7 @@
                             "qubes-mgmt-salt-dom0-virtual-machines"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -6178,7 +5842,7 @@
                             "qubes-mgmt-salt-dom0-update"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6199,7 +5863,7 @@
                             "qubes-mgmt-salt-dom0-update"
                         ]
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
@@ -6221,7 +5885,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6230,8 +5894,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -6240,15 +5902,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -6262,7 +5922,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6271,8 +5931,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -6281,15 +5939,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -6303,7 +5959,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6312,8 +5968,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -6322,15 +5976,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -6344,7 +5996,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6353,8 +6005,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -6363,15 +6013,13 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
                     }
@@ -6385,7 +6033,7 @@
                     "dom0": {
                         "fc25": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc30": [],
                         "fc31": [],
                         "fc32": [],
@@ -6394,8 +6042,6 @@
                         "stretch": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": []
                     }
                 },
@@ -6404,42 +6050,15 @@
                     "dom0": {
                         "fc32": []
                     },
-                    "vms": {
+                    "vm": {
                         "fc32": [],
                         "fc33": [],
                         "centos7": [],
                         "centos8": [],
                         "buster": [],
                         "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
                         "archlinux": [],
                         "gentoo": []
-                    }
-                }
-            }
-        },
-        "dist-upgrade": {
-            "releases": {
-                "4.0": {
-                    "branch": "release4.0",
-                    "dom0": {
-                        "fc25": [
-                            "qubes-dist-upgrade"
-                        ]
-                    },
-                    "vms": {
-                        "fc30": [],
-                        "fc31": [],
-                        "fc32": [],
-                        "centos7": [],
-                        "centos8": [],
-                        "stretch": [],
-                        "buster": [],
-                        "bullseye": [],
-                        "whonix-gateway-15": [],
-                        "whonix-workstation-15": [],
-                        "archlinux": []
                     }
                 }
             }

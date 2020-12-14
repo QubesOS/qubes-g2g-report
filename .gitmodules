@@ -1,3 +1,0 @@
-[submodule "g2g-ci"]
-	path = g2g-ci
-	url = https://github.com/fepitre/qubes-g2g-continuous-integration
