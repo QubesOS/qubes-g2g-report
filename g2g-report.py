@@ -83,11 +83,13 @@ query {
 
 
 def query_pipelines(token):
+    headers={
+        "Content-Type": "application/json",
+    }
+    if token:
+        headers["Authorization"] = "Bearer " + token
     r = requests.post('https://gitlab.com/api/graphql',
-                      headers={
-                          "Authorization": "Bearer " + token,
-                          "Content-Type": "application/json"
-                      },
+                      headers=headers,
                       json={"query": query})
     if not r.ok:
         print(r.text)
