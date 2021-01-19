@@ -6,9 +6,11 @@ workflow:
 
 g2g-report:
   stage: build
+  image: python:3
   artifacts:
     paths:
       - public
   script:
+    - pip3 install -r requirements.txt
     - git submodule update --init --recursive
-    - ./g2g-report.py --dist dom0-fc32 vm-fc32 vm-centos8 vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
+    - python3 ./g2g-report.py --dist dom0-fc32 vm-fc32 vm-centos8 vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
