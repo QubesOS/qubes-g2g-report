@@ -4,7 +4,7 @@ workflow:
      when: never
    - when: always
 
-g2g-report:
+pages:
   stage: build
   image: python:3
   artifacts:
