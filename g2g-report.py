@@ -212,10 +212,10 @@ def main(args=None):
 
     data = {"qubes_status": qubes_status}
 
-    with open('public/qubes_status.md', 'w') as fd:
+    with open('public/index.md', 'w') as fd:
         fd.write(template_md.render(**data))
 
-    with open('public/qubes_status.html', 'w') as fd:
+    with open('public/index.html', 'w') as fd:
         fd.write(template_html.render(**data))
 
 
