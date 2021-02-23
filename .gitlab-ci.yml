@@ -13,4 +13,4 @@ pages:
   script:
     - pip3 install -r requirements.txt
     - git submodule update --init --recursive
-    - python3 ./g2g-report.py --dist dom0-fc32 vm-fc32 vm-centos8 vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
+    - python3 ./g2g-report.py --dist dom0-fc32 vm-fc32 vm-fc33 vm-centos8 vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
