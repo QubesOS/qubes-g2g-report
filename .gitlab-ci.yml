@@ -4,6 +4,10 @@ workflow:
      when: never
    - when: always
 
+default:
+  tags:
+    - docker
+
 pages:
   stage: build
   image: python:3
