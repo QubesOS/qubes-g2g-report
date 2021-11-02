@@ -45,7 +45,7 @@ query {
     projects {
       nodes {
         name
-        release40: pipelines(ref: "release4.0") {
+        release40: pipelines(ref: "release4.0", first: 1) {
           nodes {
             id
             jobs {
@@ -60,7 +60,7 @@ query {
             status
           }
         }
-        master: pipelines(ref: "master") {
+        master: pipelines(ref: "master", first: 1) {
           nodes {
             id
             jobs {
