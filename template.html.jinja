@@ -15,16 +15,16 @@
 <thead>
 <tr class="header">
 <th>Component</th>
-<th>Status (R4.0)</th>
-<th>Status (master)</th>
+<th>Status (R4.1)</th>
+<th>Status (main)</th>
 </tr>
 </thead>
 <tbody>
 {%- for key, val in components.items() %}
 <tr>
 <td>{{key}}</td>
-<td>{%if '4.0' in val%}{%if 'build' in val['4.0'].keys()%}<a href="{{val['4.0']['build']['url']}}"><img src="{{val['4.0']['build']['badge']}}" alt="{{val['4.0']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['4.0']%}<a href="{{val['4.0']['install']['url']}}"><img src="{{val['4.0']['install']['badge']}}" alt="{{val['4.0']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['4.0']%}<a href="{{val['4.0']['repro']['url']}}"><img src="{{val['4.0']['repro']['badge']}}" alt="{{val['4.0']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
 <td>{%if '4.1' in val%}{%if 'build' in val['4.1'].keys()%}<a href="{{val['4.1']['build']['url']}}"><img src="{{val['4.1']['build']['badge']}}" alt="{{val['4.1']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['4.1']%}<a href="{{val['4.1']['install']['url']}}"><img src="{{val['4.1']['install']['badge']}}" alt="{{val['4.1']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['4.1']%}<a href="{{val['4.1']['repro']['url']}}"><img src="{{val['4.1']['repro']['badge']}}" alt="{{val['4.1']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
+<td>{%if '4.2' in val%}{%if 'build' in val['4.2'].keys()%}<a href="{{val['4.2']['build']['url']}}"><img src="{{val['4.2']['build']['badge']}}" alt="{{val['4.2']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['4.2']%}<a href="{{val['4.2']['install']['url']}}"><img src="{{val['4.2']['install']['badge']}}" alt="{{val['4.2']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['4.2']%}<a href="{{val['4.2']['repro']['url']}}"><img src="{{val['4.2']['repro']['badge']}}" alt="{{val['4.2']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
 </tr>
 {%- endfor %}
 </tbody>

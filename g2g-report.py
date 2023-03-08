@@ -45,7 +45,7 @@ query {
     projects {
       nodes {
         name
-        release40: pipelines(ref: "release4.0", first: 1) {
+        release41: pipelines(ref: "release4.1", first: 1) {
           nodes {
             id
             jobs {
@@ -60,7 +60,7 @@ query {
             status
           }
         }
-        master: pipelines(ref: "master", first: 1) {
+        main: pipelines(ref: "main", first: 1) {
           nodes {
             id
             jobs {
@@ -103,15 +103,15 @@ def query_pipelines(token):
     for proj in projects:
         name = proj['name'][6:]
         data[name] = {}
-        pipeline_40 = proj['release40']['nodes']
-        if pipeline_40:
-            job_40 = pipeline_40[0]['jobs']['nodes']
-            data[name]['4.0'] = job_40
-
-        pipeline_41 = proj['master']['nodes']
+        pipeline_41 = proj['release41']['nodes']
         if pipeline_41:
-            jobs_41 = pipeline_41[0]['jobs']['nodes']
-            data[name]['4.1'] = jobs_41
+            job_41 = pipeline_41[0]['jobs']['nodes']
+            data[name]['4.1'] = job_41
+
+        pipeline_42 = proj['main']['nodes']
+        if pipeline_42:
+            jobs_42 = pipeline_42[0]['jobs']['nodes']
+            data[name]['4.2'] = jobs_42
     return data
 
 
