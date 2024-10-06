@@ -82,6 +82,13 @@ query {
 """
 
 
+def error_and_exit(error_message: str):
+    """Print an error message and exit program"""
+
+    print(error_message, file=sys.stderr)
+    raise RuntimeError
+
+
 def query_pipelines(token):
     headers={
         "Content-Type": "application/json",
@@ -92,12 +99,10 @@ def query_pipelines(token):
                       headers=headers,
                       json={"query": query})
     if not r.ok:
-        print(r.text)
-        return
+        error_and_exit(r.text)
     raw_data = r.json()
     if 'errors' in raw_data:
-        print(raw_data['errors'])
-        return
+        error_and_exit(raw_data['errors'])
     projects = raw_data['data']['group']['projects']['nodes']
     data = {}
     for proj in projects:
@@ -220,4 +225,7 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    try:
+        main()
+    except RuntimeError:
+        sys.exit(1)
