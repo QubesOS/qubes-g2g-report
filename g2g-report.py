@@ -89,21 +89,8 @@ def error_and_exit(error_message: str):
     raise RuntimeError
 
 
-def query_pipelines(token):
-    headers={
-        "Content-Type": "application/json",
-    }
-    if token:
-        headers["Authorization"] = "Bearer " + token
-    r = requests.post('https://gitlab.com/api/graphql',
-                      headers=headers,
-                      json={"query": query})
-    if not r.ok:
-        error_and_exit(r.text)
-    raw_data = r.json()
-    if 'errors' in raw_data:
-        error_and_exit(raw_data['errors'])
-    projects = raw_data['data']['group']['projects']['nodes']
+def get_pipelines_data(token: str):
+    projects = query_pipelines(token)['data']['group']['projects']['nodes']
     data = {}
     for proj in projects:
         name = proj['name'][6:]
@@ -118,6 +105,28 @@ def query_pipelines(token):
             jobs_42 = pipeline_42[0]['jobs']['nodes']
             data[name]['4.2'] = jobs_42
     return data
+
+
+def query_pipelines(token: str):
+    headers = {
+        "Content-Type": "application/json",
+    }
+
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    r = requests.post('https://gitlab.com/api/graphql',
+                      headers=headers,
+                      json={"query": query})
+    if not r.ok:
+        error_and_exit(r.text)
+
+    raw_data = r.json()
+
+    if 'errors' in raw_data:
+        error_and_exit(raw_data['errors'])
+
+    return raw_data
 
 
 def pipeline_status(status):
@@ -141,7 +150,7 @@ def main(args=None):
         with open(os.path.expanduser('~/.gitlab-token')) as f:
             token = f.read().strip()
 
-    data = query_pipelines(token)
+    data = get_pipelines_data(token)
 
     # WIP: use distfile.json on Qubes repo
     with open('distfile.json') as fd:
