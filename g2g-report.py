@@ -69,6 +69,8 @@ class ReportBuilder:
         return { component.short_name: component for component in components }
 
     def _query_pipelines(self):
+        gitlab_query = self._build_gitlab_query()
+
         headers = { "Content-Type": "application/json", }
 
         if self._gitlab_token is not None:
