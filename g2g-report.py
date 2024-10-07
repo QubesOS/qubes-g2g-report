@@ -94,18 +94,7 @@ class ReportBuilder:
 
 
     def generate_report(args=None):
-        parser = argparse.ArgumentParser()
-
-        parser.add_argument('--dist', action='store', required=False, default=None,
-                            nargs='+', help='Dist to process')
-        parser.add_argument('--components', action='store', required=False,
-                            nargs='+', help='Components to process')
-        parser.add_argument('--gitlab', action='store', required=False,
-                            help='Gitlab instance URL',
-                            default="https://gitlab.com")
-        parser.add_argument('--verbose', action='store_true')
-        parser.add_argument('--debug', action='store_true')
-        args = parser.parse_args(args)
+        
         token = None
         if os.environ.get('GITLAB_API_TOKEN', None):
             token = os.environ['GITLAB_API_TOKEN']
@@ -196,8 +185,17 @@ class ReportBuilder:
             fd.write(template_html.render(**data))
 
 
+
+
+
 if __name__ == '__main__':
     try:
-        main()
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--gitlab", default="https://gitlab.com", help="Gitlab instance URL")
+        parser.add_argument("--current-release",required=True, help="Current QubesOS release number")
+        parser.add_argument("--next-release", required=True, help="Next QubesOS release number")
+        args = parser.parse_args()
+
+        builder = ReportBuilder(args.gitlab, args.current_release, args.next_release)
     except RuntimeError:
         sys.exit(1)
