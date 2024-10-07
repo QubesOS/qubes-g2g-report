@@ -66,7 +66,26 @@ class ReportBuilder:
     def _get_components(self):
         projects = self._query_pipelines()['data']['group']['projects']['nodes']
         components = [Component(component) for component in projects]
-        return { component.short_name: component for component in components }
+        return components
+    
+    def _get_distros(self, components):
+        distros = {'current_release': {}, 'next_release': {}}
+
+        for component in components:
+            print(f"* Getting build status for component '{component.name}'")
+            for i in range(2):
+                if i == 0:
+                    release_status = component.get_current_release_status(self._current_release)
+                    release_distros = distros['current_release']
+                else:
+                    release_status = component.get_next_release_status(self._next_release)
+                    release_distros = distros['next_release']
+            
+                if release_status:
+                    for distro_name, status in release_status.items():
+                        release_distros.setdefault(distro_name, {})
+                        release_distros[distro_name][component.short_name] = status
+        return distros
 
     def _query_pipelines(self):
         gitlab_query = self._build_gitlab_query()
@@ -103,7 +122,8 @@ class ReportBuilder:
 
 
     def generate_report(self):
-        data = self._get_components()
+        components = self._get_components()
+        distros = self._get_distros(components)
 
         # WIP: use distfile.json on Qubes repo
         with open('distfile.json') as fd:
