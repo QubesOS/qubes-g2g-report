@@ -1,0 +1,41 @@
+query = """
+query {
+  group(fullPath: "QubesOS") {
+    projects {
+      nodes {
+        name
+        release41: pipelines(ref: "release4.1", first: 1) {
+          nodes {
+            id
+            jobs {
+              nodes {
+                name
+                detailedStatus {
+                  detailsPath
+                  text
+                }
+              }
+            }
+            status
+          }
+        }
+        main: pipelines(ref: "main", first: 1) {
+          nodes {
+            id
+            jobs {
+              nodes {
+                name
+                detailedStatus {
+                  detailsPath
+                  text
+                }
+              }
+            }
+            status
+          }
+        }
+      }
+    }
+  }
+}
+"""

@@ -1,0 +1,15 @@
+{{release_name}}: pipelines(ref: "{{release_branch}", first: 1) {
+  nodes {
+    id
+    jobs {
+      nodes {
+        name
+        detailedStatus {
+          detailsPath
+          text
+        }
+      }
+    }
+    status
+  }
+}
