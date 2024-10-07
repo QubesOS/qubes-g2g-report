@@ -25,6 +25,7 @@ import sys
 import json
 import requests
 
+from component import Component
 from jinja2 import Template
 from pathlib import Path
 
@@ -61,23 +62,10 @@ class ReportBuilder:
 
         return gitlab_query
 
-    def _get_pipelines_data(self):
+    def _get_components(self):
         projects = self._query_pipelines()['data']['group']['projects']['nodes']
-        data = {}
-        for proj in projects:
-            name = proj['name'][6:]
-            data[name] = {}
-            pipeline_41 = proj['release41']['nodes']
-            if pipeline_41:
-                job_41 = pipeline_41[0]['jobs']['nodes']
-                data[name]['4.1'] = job_41
-
-            pipeline_42 = proj['main']['nodes']
-            if pipeline_42:
-                jobs_42 = pipeline_42[0]['jobs']['nodes']
-                data[name]['4.2'] = jobs_42
-        return data
-
+        components = [Component(component) for component in projects]
+        return { component.short_name: component for component in components }
 
     def _query_pipelines(self):
         headers = { "Content-Type": "application/json", }
@@ -112,7 +100,7 @@ class ReportBuilder:
 
 
     def generate_report(self):
-        data = self._get_pipelines_data()
+        data = self._get_components()
 
         # WIP: use distfile.json on Qubes repo
         with open('distfile.json') as fd:
