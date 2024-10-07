@@ -1,0 +1,9 @@
+{%- for dist, components in qubes_status.items() -%}
+{{dist}}
+===
+| Component | Status (R{{current_release}}) | Status ({{next_release}}) |
+|-----------|------------|------------|
+{%- for key, val in components.items() %}
+| {{key}} | {%if 'current_release' in val%}{%if 'build' in val['current_release'].keys()%}[![{{val['current_release']['build']['text']}}]({{val['current_release']['build']['badge']}})]({{val['current_release']['build']['url']}}){%endif%} {%if 'install' in val['current_release'].keys()%}[![{{val['current_release']['install']['text']}}]({{val['current_release']['install']['badge']}})]({{val['current_release']['install']['url']}}){%endif%} {%if 'repro' in val['current_release'].keys()%}[![{{val['current_release']['repro']['text']}}]({{val['current_release']['repro']['badge']}})]({{val['current_release']['repro']['url']}}){%endif%}{%endif%} | {%if 'next_release' in val%}{%if 'build' in val['next_release'].keys()%}[![{{val['next_release']['build']['text']}}]({{val['next_release']['build']['badge']}})]({{val['next_release']['build']['url']}}){%endif%} {%if 'install' in val['next_release'].keys()%}[![{{val['next_release']['install']['text']}}]({{val['next_release']['install']['badge']}})]({{val['next_release']['install']['url']}}){%endif%} {%if 'repro' in val['next_release'].keys()%}[![{{val['next_release']['repro']['text']}}]({{val['next_release']['repro']['badge']}})]({{val['next_release']['repro']['url']}}){%endif%}{%endif%} |
+{%- endfor %}
+{% endfor %}

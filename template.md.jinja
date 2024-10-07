@@ -1,9 +1,0 @@
-{%- for dist, components in qubes_status.items() -%}
-{{dist}}
-===
-| Component | Status (R4.1) | Status (main) |
-|-----------|------------|------------|
-{%- for key, val in components.items() %}
-| {{key}} | {%if '4.1' in val%}{%if 'build' in val['4.1'].keys()%}[![{{val['4.1']['build']['text']}}]({{val['4.1']['build']['badge']}})]({{val['4.1']['build']['url']}}){%endif%} {%if 'install' in val['4.1'].keys()%}[![{{val['4.1']['install']['text']}}]({{val['4.1']['install']['badge']}})]({{val['4.1']['install']['url']}}){%endif%} {%if 'repro' in val['4.1'].keys()%}[![{{val['4.1']['repro']['text']}}]({{val['4.1']['repro']['badge']}})]({{val['4.1']['repro']['url']}}){%endif%}{%endif%} | {%if '4.2' in val%}{%if 'build' in val['4.2'].keys()%}[![{{val['4.2']['build']['text']}}]({{val['4.2']['build']['badge']}})]({{val['4.2']['build']['url']}}){%endif%} {%if 'install' in val['4.2'].keys()%}[![{{val['4.2']['install']['text']}}]({{val['4.2']['install']['badge']}})]({{val['4.2']['install']['url']}}){%endif%} {%if 'repro' in val['4.2'].keys()%}[![{{val['4.2']['repro']['text']}}]({{val['4.2']['repro']['badge']}})]({{val['4.2']['repro']['url']}}){%endif%}{%endif%} |
-{%- endfor %}
-{% endfor %}

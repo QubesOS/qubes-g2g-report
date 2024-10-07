@@ -49,7 +49,7 @@ class Component:
                     if job_release_number == f"r{release_number}":
                         if job_stage in ['build', 'install', 'repro']:
                             distros.setdefault(distro_name, {})
-                            distros[distro_name][job_stage] = job['detailedStatus']['text']
+                            distros[distro_name][job_stage] = job['detailedStatus']
                         
         return distros
 

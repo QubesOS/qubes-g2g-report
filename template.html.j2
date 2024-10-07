@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <title>QubesOS components status</title>
+  <style>
+  body { font-family: sans-serif; }
+  td, th { border: solid 2px #dcdcdc; padding: 4px; }
+  table { border-collapse: collapse; }
+  </style>
+</head>
+<body>
+{%- for dist, components in qubes_status.items() -%}
+<h1 id="{{dist}}">{{dist}}</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Status (R{{current_release}})</th>
+<th>Status (R{{next_release}})</th>
+</tr>
+</thead>
+<tbody>
+{%- for key, val in components.items() %}
+<tr>
+<td>{{key}}</td>
+<td>{%if 'current_release' in val%}{%if 'build' in val['current_release'].keys()%}<a href="{{val['current_release']['build']['url']}}"><img src="{{val['current_release']['build']['badge']}}" alt="{{val['current_release']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['current_release']%}<a href="{{val['current_release']['install']['url']}}"><img src="{{val['current_release']['install']['badge']}}" alt="{{val['current_release']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['current_release']%}<a href="{{val['current_release']['repro']['url']}}"><img src="{{val['current_release']['repro']['badge']}}" alt="{{val['current_release']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
+<td>{%if 'next_release' in val%}{%if 'build' in val['next_release'].keys()%}<a href="{{val['next_release']['build']['url']}}"><img src="{{val['next_release']['build']['badge']}}" alt="{{val['next_release']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['next_release']%}<a href="{{val['next_release']['install']['url']}}"><img src="{{val['next_release']['install']['badge']}}" alt="{{val['next_release']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['next_release']%}<a href="{{val['next_release']['repro']['url']}}"><img src="{{val['next_release']['repro']['badge']}}" alt="{{val['next_release']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
+</tr>
+{%- endfor %}
+</tbody>
+</table>
+{%- endfor %}
+</body>
+</html>

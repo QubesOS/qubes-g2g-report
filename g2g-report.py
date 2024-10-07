@@ -19,11 +19,12 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os
+
 import argparse
-import sys
 import json
+import os
 import requests
+import sys
 
 from component import Component
 from jinja2 import Template
@@ -44,11 +45,11 @@ class ReportBuilder:
         with open('gitlab_query.j2', 'r') as f:
             self._gitlab_query_template = Template(f.read())
 
-    def error_and_exit(self, error_message: str):
-        """Print an error message and exit program"""
+        with open('template.md.j2', 'r') as template_fd:
+            self._template_md = Template(template_fd.read())
 
-        print(error_message, file=sys.stderr)
-        raise RuntimeError
+        with open('template.html.j2', 'r') as template_fd:
+            self._template_html = Template(template_fd.read())
     
     def _build_gitlab_query(self):
         query_pipelines_stubs = [
@@ -62,6 +63,12 @@ class ReportBuilder:
         )
 
         return gitlab_query
+    
+    def _error_and_exit(self, error_message: str):
+        """Print an error message and exit program"""
+
+        print(error_message, file=sys.stderr)
+        raise RuntimeError
 
     def _get_components(self):
         projects = self._query_pipelines()['data']['group']['projects']['nodes']
@@ -99,17 +106,18 @@ class ReportBuilder:
                         headers=headers,
                         json={"query": gitlab_query})
         if not r.ok:
-            error_and_exit(r.text)
+            self._error_and_exit(r.text)
 
         raw_data = r.json()
 
         if 'errors' in raw_data:
-            error_and_exit(raw_data['errors'])
+            self._error_and_exit(raw_data['errors'])
 
         return raw_data
 
 
-    def pipeline_status(status):
+    @staticmethod
+    def _pipeline_status_to_string(status):
         if status in ('created', 'waiting_for_resource', 'preparing', 'pending',
                     'running', 'manual', 'scheduled'):
             return 'unknown'
@@ -122,91 +130,39 @@ class ReportBuilder:
 
 
     def generate_report(self):
+        print("* Getting components...")
         components = self._get_components()
         distros = self._get_distros(components)
 
-        # WIP: use distfile.json on Qubes repo
-        with open('distfile.json') as fd:
-            distfile_data = json.loads(fd.read())
-
-        if args.dist:
-            dists = args.dist
-        else:
-            dists = []
-            for release in distfile_data["releases"].keys():
-                dists += ["dom0-%s" % dist for dist in distfile_data["releases"][release]["dom0"]]
-                dists += ["vm-%s" % dist for dist in distfile_data["releases"][release]["vm"]]
-
-        dists = sorted(set(dists))
+        # Flatten for HTML display
         qubes_status = {}
-        for dist in dists:
-            print("-> Generating report for %s..." % dist)
-            qubes_status[dist] = {}
-            for component in sorted(distfile_data["components"].keys()):
-                # if args.components and component not in args.components:
-                #     continue
-                qubes_status[dist][component] = {}
-                component_data = distfile_data["components"][component]["releases"]
-                for release in component_data.keys():
-                    branch = component_data[release].get("branch", None)
-                    qubes_status[dist][component][release] = {}
-                    if branch:
-                        pipeline = data.get(component, {}).get(release, [])
-                        if pipeline:
-                            build_job = None
-                            install_job = None
-                            repro_job = None
-                            for job in pipeline:
-                                if job['name'] == "build:%s" % dist:
-                                    build_job = job
-                                elif job['name'] == "install:%s" % dist:
-                                    install_job = job
-                                elif job['name'] == "repro:%s" % dist:
-                                    repro_job = job
+        for release in ['current_release', 'next_release']:
+            for distro, components in distros[release].items():
+                qubes_status.setdefault(distro, {})
+                for component_name, component_status in components.items():
+                    qubes_status[distro].setdefault(component_name, {})
+                    qubes_status[distro][component_name][release] = {}
+                    for stage in ["build", "install", "repro"]:
+                        job = component_status.get(stage)
+                        if job:
+                            qubes_status[distro][component_name][release][stage] = {
+                                "url": f"{self._gitlab_url}{job['detailsPath']}",
+                                "badge": "{}_{}.svg".format(stage, self._pipeline_status_to_string(job['text'])),
+                                "text": f"{stage.capitalize()} Status"
+                            }
 
-                            if build_job:
-                                qubes_status[dist][component][release]["build"] = {
-                                    "url": args.gitlab + build_job['detailedStatus']['detailsPath'],
-                                    "badge": "build_%s.svg" % pipeline_status(build_job['detailedStatus']['text']),
-                                    "text": "Build Status"
-                                }
-                            if install_job:
-                                qubes_status[dist][component][release]["install"] = {
-                                    "url": args.gitlab + install_job['detailedStatus']['detailsPath'],
-                                    "badge": "install_%s.svg" % pipeline_status(install_job['detailedStatus']['text']),
-                                    "text": "Install Status"
-                                }
-                            if repro_job:
-                                qubes_status[dist][component][release]["repro"] = {
-                                    "url": args.gitlab + repro_job['detailedStatus']['detailsPath'],
-                                    "badge": "repro_%s.svg" % pipeline_status(repro_job['detailedStatus']['text']),
-                                    "text": "Repro Status"
-                                }
-
-                    # no need to display empty lines?
-                    if not qubes_status[dist][component][release]:
-                        del qubes_status[dist][component][release]
-
-                # no need to display empty lines?
-                if not qubes_status[dist][component]:
-                    del qubes_status[dist][component]
-
-        with open('template.md.jinja', 'r') as template_fd:
-            template_md = Template(template_fd.read())
-
-        with open('template.html.jinja', 'r') as template_fd:
-            template_html = Template(template_fd.read())
-
-        data = {"qubes_status": qubes_status}
+        qubes_status = dict(sorted(qubes_status.items()))
 
         with open('public/index.md', 'w') as fd:
-            fd.write(template_md.render(**data))
+            fd.write(self._template_md.render(
+                current_release=self._current_release,
+                next_release=self._next_release,
+                qubes_status=qubes_status))
 
         with open('public/index.html', 'w') as fd:
-            fd.write(template_html.render(**data))
-
-
-
+            fd.write(self._template_html.render(current_release=self._current_release,
+                next_release=self._next_release,
+                qubes_status=qubes_status))
 
 
 if __name__ == '__main__':
