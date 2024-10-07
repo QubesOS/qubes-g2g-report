@@ -26,11 +26,13 @@ import json
 import requests
 
 from jinja2 import Template
+from pathlib import Path
 
 
 class ReportBuilder:
-    def __init__(self, gitlab_url: str, current_release: str, next_release: str):
+    def __init__(self, gitlab_url: str, current_release: str, next_release: str, gitlab_token: str):
         self._current_release = current_release
+        self._gitlab_token = gitlab_token
         self._gitlab_url = gitlab_url
         self._next_release = next_release
 
@@ -100,14 +102,6 @@ class ReportBuilder:
 
 
     def generate_report(args=None):
-        
-        token = None
-        if os.environ.get('GITLAB_API_TOKEN', None):
-            token = os.environ['GITLAB_API_TOKEN']
-        elif os.path.exists(os.path.expanduser('~/.gitlab-token')):
-            with open(os.path.expanduser('~/.gitlab-token')) as f:
-                token = f.read().strip()
-
         data = get_pipelines_data(token)
 
         # WIP: use distfile.json on Qubes repo
@@ -202,6 +196,16 @@ if __name__ == '__main__':
         parser.add_argument("--next-release", required=True, help="Next QubesOS release number")
         args = parser.parse_args()
 
-        builder = ReportBuilder(args.gitlab, args.current_release, args.next_release)
+        gitlab_token = os.environ.get('GITLAB_API_TOKEN')
+        if gitlab_token is None:
+            gitlab_token_file = Path('~/.gitlab-token').expanduser()
+            if gitlab_token_file.is_file():
+                gitlab_token = gitlab_token_file.read_text().strip()
+
+        if gitlab_token is None:
+            print("ERROR: Gitlab token not found. Please fill file ~/.gitlab_token or set GITLAB_API_TOKEN environment variable.", file=sys.stderr)
+            exit(1)
+
+        builder = ReportBuilder(args.gitlab, args.current_release, args.next_release, gitlab_token).generate_report()
     except RuntimeError:
         sys.exit(1)
