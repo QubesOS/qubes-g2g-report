@@ -34,6 +34,12 @@ class ReportBuilder:
         self._gitlab_url = gitlab_url
         self._next_release = next_release
 
+        with open('gitlab_query_pipeline.j2', 'r') as f:
+            self._gitlab_query_pipeline_template = Template(f.read())
+
+        with open('gitlab_query.j2', 'r') as f:
+            self._gitlab_query_template = Template(f.read())
+
     def error_and_exit(self, error_message: str):
         """Print an error message and exit program"""
 
