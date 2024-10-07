@@ -101,7 +101,7 @@ class ReportBuilder:
             return 'success'
 
 
-    def generate_report(args=None):
+    def generate_report(self):
         data = get_pipelines_data(token)
 
         # WIP: use distfile.json on Qubes repo
