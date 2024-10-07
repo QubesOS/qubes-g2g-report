@@ -28,10 +28,11 @@ import requests
 from component import Component
 from jinja2 import Template
 from pathlib import Path
+from typing import Optional
 
 
 class ReportBuilder:
-    def __init__(self, gitlab_url: str, current_release: str, next_release: str, gitlab_token: str):
+    def __init__(self, gitlab_url: str, current_release: str, next_release: str, gitlab_token: Optional[str] = None):
         self._current_release = current_release
         self._gitlab_token = gitlab_token
         self._gitlab_url = gitlab_url
@@ -199,10 +200,6 @@ if __name__ == '__main__':
             gitlab_token_file = Path('~/.gitlab-token').expanduser()
             if gitlab_token_file.is_file():
                 gitlab_token = gitlab_token_file.read_text().strip()
-
-        if gitlab_token is None:
-            print("ERROR: Gitlab token not found. Please fill file ~/.gitlab_token or set GITLAB_API_TOKEN environment variable.", file=sys.stderr)
-            exit(1)
 
         builder = ReportBuilder(args.gitlab, args.current_release, args.next_release, gitlab_token).generate_report()
     except RuntimeError:
