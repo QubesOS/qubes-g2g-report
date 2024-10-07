@@ -47,10 +47,22 @@ class ReportBuilder:
 
         print(error_message, file=sys.stderr)
         raise RuntimeError
+    
+    def _build_gitlab_query(self):
+        query_pipelines_stubs = [
+            self._gitlab_query_pipeline_template.render(release_name="current", release_branch=f"release{self._current_release}"),
+            self._gitlab_query_pipeline_template.render(release_name="next", release_branch=f"release{self._next_release}"),
+            self._gitlab_query_pipeline_template.render(release_name="main", release_branch="main"),
+        ]
 
+        gitlab_query = self._gitlab_query_template.render(
+            pipelines="\n".join(query_pipelines_stubs),
+        )
 
-    def get_pipelines_data(self, token: str):
-        projects = query_pipelines(token)['data']['group']['projects']['nodes']
+        return gitlab_query
+
+    def _get_pipelines_data(self):
+        projects = self._query_pipelines()['data']['group']['projects']['nodes']
         data = {}
         for proj in projects:
             name = proj['name'][6:]
@@ -67,17 +79,15 @@ class ReportBuilder:
         return data
 
 
-    def query_pipelines(token: str):
-        headers = {
-            "Content-Type": "application/json",
-        }
+    def _query_pipelines(self):
+        headers = { "Content-Type": "application/json", }
 
-        if token:
-            headers["Authorization"] = f"Bearer {token}"
+        if self._gitlab_token is not None:
+            headers["Authorization"] = f"Bearer {self._gitlab_token}"
 
         r = requests.post('https://gitlab.com/api/graphql',
                         headers=headers,
-                        json={"query": query})
+                        json={"query": gitlab_query})
         if not r.ok:
             error_and_exit(r.text)
 
@@ -102,7 +112,7 @@ class ReportBuilder:
 
 
     def generate_report(self):
-        data = get_pipelines_data(token)
+        data = self._get_pipelines_data()
 
         # WIP: use distfile.json on Qubes repo
         with open('distfile.json') as fd:
