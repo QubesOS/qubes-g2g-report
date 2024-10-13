@@ -69,8 +69,8 @@ class Component:
     def next_release_pipeline(self) -> Optional[dict]:
         return self._get_pipeline_jobs('next')
     
-    def get_current_release_status(self, release_number: int) -> dict:
+    def get_current_release_status(self, release_number: str) -> dict:
         return self._get_release_status(self.current_release_pipeline, release_number)
     
-    def get_next_release_status(self, release_number: int) -> dict:
+    def get_next_release_status(self, release_number: str) -> dict:
         return self._get_release_status(self.next_release_pipeline, release_number)
