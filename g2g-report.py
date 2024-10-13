@@ -33,6 +33,8 @@ from typing import Optional
 
 
 class ReportBuilder:
+    MAXIMUM_PAGINATION = 20
+
     def __init__(self, gitlab_url: str, current_release: str, next_release: str, gitlab_token: Optional[str] = None):
         self._current_release = current_release
         self._gitlab_token = gitlab_token
@@ -60,6 +62,7 @@ class ReportBuilder:
 
         gitlab_query = self._gitlab_query_template.render(
             pipelines="\n".join(query_pipelines_stubs),
+            pagination_offset=pagination_offset,
         )
 
         return gitlab_query
@@ -71,7 +74,17 @@ class ReportBuilder:
         raise RuntimeError
 
     def _get_components(self):
-        projects = self._query_pipelines()['data']['group']['projects']['nodes']
+        projects = []
+        pagination_offset = None
+        for i in range(self.MAXIMUM_PAGINATION):
+            data = self._query_pipelines(pagination_offset)
+            projects += data['data']['group']['projects']['nodes']
+
+            if not data['data']['group']['projects']['pageInfo']['hasNextPage']:
+                break
+
+            pagination_offset = data['data']['group']['projects']['pageInfo']['endCursor']
+
         components = [Component(component) for component in projects]
         return components
     
@@ -94,8 +107,8 @@ class ReportBuilder:
                         release_distros[distro_name][component.short_name] = status
         return distros
 
-    def _query_pipelines(self):
-        gitlab_query = self._build_gitlab_query()
+    def _query_pipelines(self, pagination_offset=None):
+        gitlab_query = self._build_gitlab_query(pagination_offset)
 
         headers = { "Content-Type": "application/json", }
 

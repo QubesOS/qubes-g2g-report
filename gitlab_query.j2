@@ -1,9 +1,13 @@
 query {
   group(fullPath: "QubesOS") {
-    projects {
+    projects {% if pagination_offset %}(after: "{{ pagination_offset }}"){% endif %}{
       nodes {
         name
 {{pipelines}}
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
       }
     }
   }
