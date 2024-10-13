@@ -131,6 +131,7 @@ class ReportBuilder:
 
     @staticmethod
     def _pipeline_status_to_string(status):
+        status = status.lower()
         if status in ('created', 'waiting_for_resource', 'preparing', 'pending',
                     'running', 'manual', 'scheduled'):
             return 'unknown'
