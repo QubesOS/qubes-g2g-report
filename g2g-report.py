@@ -41,16 +41,16 @@ class ReportBuilder:
         self._gitlab_url = gitlab_url
         self._next_release = next_release
 
-        with open('gitlab_query_pipeline.j2', 'r') as f:
+        with open('templates/gitlab_query_pipeline.j2', 'r') as f:
             self._gitlab_query_pipeline_template = Template(f.read())
 
-        with open('gitlab_query.j2', 'r') as f:
+        with open('templates/gitlab_query.j2', 'r') as f:
             self._gitlab_query_template = Template(f.read())
 
-        with open('template.md.j2', 'r') as template_fd:
+        with open('templates/template.md.j2', 'r') as template_fd:
             self._template_md = Template(template_fd.read())
 
-        with open('template.html.j2', 'r') as template_fd:
+        with open('templates/template.html.j2', 'r') as template_fd:
             self._template_html = Template(template_fd.read())
     
     def _build_gitlab_query(self, pagination_offset):
