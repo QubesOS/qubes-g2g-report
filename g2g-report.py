@@ -165,6 +165,8 @@ class ReportBuilder:
                             }
 
         qubes_status = dict(sorted(qubes_status.items()))
+        for distro in qubes_status.keys():
+            qubes_status[distro] = dict(sorted(qubes_status[distro].items()))
 
         with open('public/index.md', 'w') as fd:
             fd.write(self._template_md.render(
