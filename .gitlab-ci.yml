@@ -1,3 +1,7 @@
+variables:
+  CURRENT_RELEASE: 4.2
+  NEXT_RELEASE: 4.3
+
 workflow:
  rules:
    - if: '$CI_PIPELINE_SOURCE == "push"'
@@ -17,4 +21,4 @@ pages:
   script:
     - pip3 install -r requirements.txt
     - git submodule update --init --recursive
-    - python3 ./g2g-report.py --dist dom0-fc32 dom0-fc25 vm-fc32 vm-fc33 vm-fc34 vm-fc35 vm-centos8 vm-buster vm-bullseye vm-gentoo vm-gentoo-minimal vm-gentoo-xfce
+    - python3 ./g2g-report.py --current-release "${CURRENT_RELEASE}" --next-release "${NEXT_RELEASE}"
