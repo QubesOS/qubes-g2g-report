@@ -192,6 +192,6 @@ if __name__ == '__main__':
             if gitlab_token_file.is_file():
                 gitlab_token = gitlab_token_file.read_text().strip()
 
-        builder = ReportBuilder(args.gitlab, args.current_release, args.next_release, gitlab_token).generate_report()
+        ReportBuilder(args.gitlab, args.current_release, args.next_release, gitlab_token).generate_report()
     except RuntimeError:
         sys.exit(1)
