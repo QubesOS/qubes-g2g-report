@@ -23,8 +23,44 @@
 {%- for key, val in components.items() %}
 <tr>
 <td>{{key}}</td>
-<td>{%if 'current_release' in val%}{%if 'build' in val['current_release'].keys()%}<a href="{{val['current_release']['build']['url']}}"><img src="{{val['current_release']['build']['badge']}}" alt="{{val['current_release']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['current_release']%}<a href="{{val['current_release']['install']['url']}}"><img src="{{val['current_release']['install']['badge']}}" alt="{{val['current_release']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['current_release']%}<a href="{{val['current_release']['repro']['url']}}"><img src="{{val['current_release']['repro']['badge']}}" alt="{{val['current_release']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
-<td>{%if 'next_release' in val%}{%if 'build' in val['next_release'].keys()%}<a href="{{val['next_release']['build']['url']}}"><img src="{{val['next_release']['build']['badge']}}" alt="{{val['next_release']['build']['text']}}"/></a>{%endif%} {%if 'install' in val['next_release']%}<a href="{{val['next_release']['install']['url']}}"><img src="{{val['next_release']['install']['badge']}}" alt="{{val['next_release']['install']['text']}}" /></a>{%endif%} {%if 'repro' in val['next_release']%}<a href="{{val['next_release']['repro']['url']}}"><img src="{{val['next_release']['repro']['badge']}}" alt="{{val['next_release']['repro']['text']}}" /></a>{%endif%}{%endif%}</td>
+<td>
+{%- if 'current_release' in val %}
+{%- if 'build' in val['current_release'].keys() %}
+<a href="{{val['current_release']['build']['url']}}">
+    <img src="{{val['current_release']['build']['badge']}}" alt="{{val['current_release']['build']['text']}}"/>
+</a>
+{%- endif %}
+{%- if 'install' in val['current_release'] %}
+<a href="{{val['current_release']['install']['url']}}">
+    <img src="{{val['current_release']['install']['badge']}}" alt="{{val['current_release']['install']['text']}}" />
+</a>
+{%- endif %}
+{%- if 'repro' in val['current_release'] %}
+<a href="{{val['current_release']['repro']['url']}}">
+    <img src="{{val['current_release']['repro']['badge']}}" alt="{{val['current_release']['repro']['text']}}" />
+</a>
+{%- endif %}
+{%- endif %}
+</td>
+<td>
+{%- if 'next_release' in val %}
+{%- if 'build' in val['next_release'].keys() %}
+<a href="{{val['next_release']['build']['url']}}">
+    <img src="{{val['next_release']['build']['badge']}}" alt="{{val['next_release']['build']['text']}}"/>
+</a>
+{%- endif %}
+{%- if 'install' in val['next_release'] %}
+<a href="{{val['next_release']['install']['url']}}">
+    <img src="{{val['next_release']['install']['badge']}}" alt="{{val['next_release']['install']['text']}}" />
+</a>
+{%- endif %}
+{%- if 'repro' in val['next_release'] %}
+<a href="{{val['next_release']['repro']['url']}}">
+    <img src="{{val['next_release']['repro']['badge']}}" alt="{{val['next_release']['repro']['text']}}" />
+</a>
+{%- endif %}
+{%- endif %}
+</td>
 </tr>
 {%- endfor %}
 </tbody>
