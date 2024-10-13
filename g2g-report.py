@@ -53,7 +53,7 @@ class ReportBuilder:
         with open('template.html.j2', 'r') as template_fd:
             self._template_html = Template(template_fd.read())
     
-    def _build_gitlab_query(self):
+    def _build_gitlab_query(self, pagination_offset):
         query_pipelines_stubs = [
             self._gitlab_query_pipeline_template.render(release_name="current", release_branch=f"release{self._current_release}"),
             self._gitlab_query_pipeline_template.render(release_name="next", release_branch=f"release{self._next_release}"),
