@@ -59,7 +59,7 @@ class Component:
 
     @property
     def short_name(self) -> str:
-        return self.name.lstrip('qubes-')
+        return self.name.removeprefix('qubes-')
 
     @property
     def current_release_pipeline(self) -> Optional[dict]:
