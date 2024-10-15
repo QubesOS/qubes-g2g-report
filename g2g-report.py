@@ -103,7 +103,10 @@ class ReportBuilder:
                 if release_status:
                     for distro_name, status in release_status.items():
                         release_distros.setdefault(distro_name, {})
-                        release_distros[distro_name][component.short_name] = status
+                        release_distros[distro_name][component.short_name] = {
+                            'status': status,
+                            'component': component,
+                        }
         return distros
 
     def _query_pipelines(self, pagination_offset=None):
@@ -152,9 +155,12 @@ class ReportBuilder:
         for release in ['current_release', 'next_release']:
             for distro, components in distros[release].items():
                 qubes_status.setdefault(distro, {})
-                for component_name, component_status in components.items():
+                for component_name, component_details in components.items():
+                    component = component_details['component']
+                    component_status = component_details['status']
                     qubes_status[distro].setdefault(component_name, {})
                     qubes_status[distro][component_name][release] = {}
+                    qubes_status[distro][component_name]['project_url'] = f"{self._gitlab_url}/QubesOS/{component.name}"
                     for stage in ["build", "install", "repro"]:
                         job = component_status.get(stage)
                         if job:

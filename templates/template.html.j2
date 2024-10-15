@@ -22,7 +22,7 @@
 <tbody>
 {%- for key, val in components.items() %}
 <tr>
-<td>{{key}}</td>
+<td><a href="{{val['project_url']}}">{{key}}</a></td>
 <td>
 {%- if 'current_release' in val %}
 {%- if 'build' in val['current_release'].keys() %}
