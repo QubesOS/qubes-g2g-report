@@ -20,6 +20,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 
+from datetime import datetime
 from qubes_g2g_report.enums.job_status import JobStatus
 from qubes_g2g_report.enums.job_type import JobType
 from typing import Optional
@@ -28,6 +29,10 @@ from typing import Optional
 class Job:
     def __init__(self, gitlab_job_node: dict):
         self._gitlab_job_node = gitlab_job_node
+
+    @property
+    def creation_time(self) -> datetime:
+        return datetime.fromisoformat(self._gitlab_job_node['createdAt'])
 
     @property
     def distribution(self) -> Optional[str]:

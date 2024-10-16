@@ -24,6 +24,8 @@ import requests
 import sys
 
 
+from babel.dates import format_timedelta, format_datetime
+from datetime import datetime, timezone
 from qubes_g2g_report.component import Component
 from jinja2 import Template
 from typing import Optional
@@ -136,6 +138,7 @@ class ReportBuilder:
         print("* Getting components...")
         components = self._get_components()
         distros = self._get_distros(components)
+        current_time = datetime.now(timezone.utc)
 
         # Flatten for HTML display
         qubes_status = {}
@@ -150,14 +153,19 @@ class ReportBuilder:
                     qubes_status[distro][component_name][release] = {}
                     qubes_status[distro][component_name]['project_url'] = f"{self._gitlab_url}/QubesOS/{component.name}"
 
+                    qubes_status[distro][component_name][release]["last_job_creation_time"] = ""
+                    qubes_status[distro][component_name][release]["last_job_time_delta"] = ""
                     for stage in [JobType.BUILD, JobType.INSTALL, JobType.REPRO]:
                         job = component_release_jobs.get(stage)
                         if job:
+                            qubes_status[distro][component_name][release]["last_job_creation_time"] = format_datetime(job.creation_time, locale="en")
+                            qubes_status[distro][component_name][release]["last_job_time_delta"] = format_timedelta(job.creation_time - current_time, add_direction=True, locale="en")
                             qubes_status[distro][component_name][release][stage.name.lower()] = {
                                 "url": f"{self._gitlab_url}{job.path}",
                                 "badge": "{}_{}.svg".format(stage.name.lower(), job.status.name.lower()),
-                                "text": f"{job.type.name.capitalize()} Status"
+                                "text": f"{job.type.name.capitalize()} Status",
                             }
+
 
         qubes_status = dict(sorted(qubes_status.items()))
         for distro in qubes_status.keys():
