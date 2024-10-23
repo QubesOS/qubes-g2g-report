@@ -22,6 +22,7 @@
 
 import requests
 import sys
+import yaml
 
 
 from babel.dates import format_timedelta, format_datetime
@@ -35,6 +36,7 @@ from qubes_g2g_report.enums.job_type import JobType
 
 class ReportBuilder:
     MAXIMUM_PAGINATION = 20
+    BUILDER_CONFIG_URL = "https://raw.githubusercontent.com/QubesOS/qubes-builderv2/refs/heads/main/example-configs/qubes-os-r{}.yml"
 
     def __init__(self, gitlab_url: str, current_release: str, next_release: str, gitlab_token: Optional[str] = None):
         self._current_release = current_release
@@ -75,6 +77,19 @@ class ReportBuilder:
 
         print(error_message, file=sys.stderr)
         raise RuntimeError
+
+    def _get_builder_config(self, release: str):
+        print(f"* Getting QubesOS builder example configuration for release {release}")
+        builder_config_url = self.BUILDER_CONFIG_URL.format(release)
+        response = requests.get(builder_config_url)
+        if response.status_code != 200:
+            print(f"WARNING: Unable to retrieve builder configuration file for release {release}", file=sys.stderr)
+            return None
+        try:
+            return yaml.safe_load(response.text)
+        except yaml.YAMLError:
+            print(f"WARNING: Unable to parse builder configuration file for release {release}", file=sys.stderr)
+            return None
 
     def _get_components(self):
         projects = []
@@ -135,10 +150,15 @@ class ReportBuilder:
         return raw_data
 
     def generate_report(self):
+        builder_config_current_release = self._get_builder_config(self._current_release)
+        builder_config_next_release = self._get_builder_config(self._next_release)
+
         print("* Getting components...")
         components = self._get_components()
         distros = self._get_distros(components)
         current_time = datetime.now(timezone.utc)
+
+
 
         # Flatten for HTML display
         qubes_status = {}
