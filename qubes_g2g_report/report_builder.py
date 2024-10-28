@@ -78,18 +78,28 @@ class ReportBuilder:
         print(error_message, file=sys.stderr)
         raise RuntimeError
 
-    def _get_builder_config(self, release: str):
+    def _get_builder_components_configuration(self, release: str) -> dict:
         print(f"* Getting QubesOS builder example configuration for release {release}")
         builder_config_url = self.BUILDER_CONFIG_URL.format(release)
         response = requests.get(builder_config_url)
         if response.status_code != 200:
             print(f"WARNING: Unable to retrieve builder configuration file for release {release}", file=sys.stderr)
-            return None
+            return {}
         try:
-            return yaml.safe_load(response.text)
+            builder_config = yaml.safe_load(response.text)
         except yaml.YAMLError:
             print(f"WARNING: Unable to parse builder configuration file for release {release}", file=sys.stderr)
-            return None
+            return {}
+
+        builder_components_configuration = builder_config.get("components")
+        if not builder_components_configuration:
+            return {}
+
+        components_configuration = {}
+        for entry in builder_components_configuration:
+            if isinstance(entry, dict):
+                components_configuration = {**components_configuration, **entry}
+        return components_configuration
 
     def _get_components(self):
         projects = []
@@ -106,17 +116,22 @@ class ReportBuilder:
         components = [Component(component) for component in projects]
         return components
 
-    def _get_distros(self, components):
+    def _get_distros(self,
+                     components,
+                     builder_components_config_current_release,
+                     builder_components_config_next_release):
         distros = {'current_release': {}, 'next_release': {}}
 
         for component in components:
             print(f"* Getting build jobs for component '{component.name}'")
             for i in range(2):
                 if i == 0:
-                    release_status = component.get_current_release_jobs(self._current_release)
+                    release_status = component.get_current_release_jobs(self._current_release,
+                                                                        builder_components_config_current_release.get(component.short_name))
                     release_distros = distros['current_release']
                 else:
-                    release_status = component.get_next_release_jobs(self._next_release)
+                    release_status = component.get_next_release_jobs(self._next_release,
+                                                                     builder_components_config_next_release.get(component.short_name))
                     release_distros = distros['next_release']
 
                 if release_status:
@@ -150,15 +165,13 @@ class ReportBuilder:
         return raw_data
 
     def generate_report(self):
-        builder_config_current_release = self._get_builder_config(self._current_release)
-        builder_config_next_release = self._get_builder_config(self._next_release)
+        builder_components_config_current_release = self._get_builder_components_configuration(self._current_release)
+        builder_components_config_next_release = self._get_builder_components_configuration(self._next_release)
 
         print("* Getting components...")
         components = self._get_components()
-        distros = self._get_distros(components)
+        distros = self._get_distros(components, builder_components_config_current_release, builder_components_config_next_release)
         current_time = datetime.now(timezone.utc)
-
-
 
         # Flatten for HTML display
         qubes_status = {}
