@@ -54,7 +54,7 @@ class Component:
 
         pipeline_current_release = project_node[re.sub('[^A-Za-z0-9]+', '', branch_node_name)]['nodes']
         if pipeline_current_release:
-            return [Job(node) for node in pipeline_current_release[0]['jobs']['nodes']]
+            return [Job(node, pipeline_current_release[0]['ref']) for node in pipeline_current_release[0]['jobs']['nodes']]
 
     @staticmethod
     def _get_release_jobs(pipeline_jobs: Optional[dict], release_number: str) -> Dict[JobType,Job]:

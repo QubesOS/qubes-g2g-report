@@ -193,6 +193,7 @@ class ReportBuilder:
                         if job:
                             qubes_status[distro][component_name][release]["last_job_creation_time"] = format_datetime(job.creation_time, locale="en")
                             qubes_status[distro][component_name][release]["last_job_time_delta"] = format_timedelta(job.creation_time - current_time, add_direction=True, locale="en").replace(" ", "&nbsp;")
+                            qubes_status[distro][component_name][release]['branch'] = job.branch
                             qubes_status[distro][component_name][release][stage.name.lower()] = {
                                 "url": f"{self._gitlab_url}{job.path}",
                                 "badge": "{}_{}.svg".format(stage.name.lower(), job.status.name.lower()),

@@ -17,25 +17,50 @@
         <thead>
             <tr class="header">
                 <th>Component</th>
-                <th>Status (R{{current_release}})</th>
-                <th>Status (R{{next_release}})</th>
+                <th colspan="2">Status (R{{current_release}})</th>
+                <th colspan="2">Status (R{{next_release}})</th>
             </tr>
         </thead>
         <tbody>
             {%- for key, val in components.items() %}
                 <tr>
-                    <td><a href="{{val['project_url']}}">{{key}}</a></td>
+                    <td rowspan="2"><a href="{{val['project_url']}}">{{key}}</a></td>
                     {%- for release in ['current_release', 'next_release'] %}
                         <td>
+                            <img src="branch.svg" />&nbsp;
+                            {%- if release in val %}
+                                {{val[release]['branch']}}
+                            {%- else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td rowspan="2">
                             {%- if release in val %}
                                 {%- for stage in ['build', 'install', 'repro'] %}
                                     {%- if stage in val[release].keys() %}
                                         <a href="{{val[release][stage]['url']}}"><img src="{{val[release][stage]['badge']}}" alt="{{val[release][stage]['text']}}"/></a>
+                                    {%- else %}
+                                    <img src="build_unknown.svg" alt="Unknown"/>
                                     {%- endif %}
                                 {%- endfor %}
-                                <span class="job_time" title="{{val[release]['last_job_creation_time']}}">
-                                    ({{val[release]['last_job_time_delta']}})
+                            {%- else %}
+                                {%- for stage in ['build', 'install', 'repro'] %}
+                                    <img src="{{stage}}_unknown.svg" alt="Unknown"/>
+                                {%- endfor %}
+                            {%- endif %}
+                        </td>
+                    {%- endfor %}
+                </tr>
+                <tr>
+                    {%- for release in ['current_release', 'next_release'] %}
+                        <td>
+                            <img src="calendar.svg" />&nbsp;
+                            {%- if release in val %}
+                                <span title="{{val[release]['last_job_creation_time']}}">
+                                    {{val[release]['last_job_time_delta']}}
                                 </span>
+                            {%- else %}
+                                N/A
                             {%- endif %}
                         </td>
                     {%- endfor %}

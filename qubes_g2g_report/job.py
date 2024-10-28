@@ -27,8 +27,9 @@ from typing import Optional
 
 
 class Job:
-    def __init__(self, gitlab_job_node: dict):
+    def __init__(self, gitlab_job_node: dict, branch: str):
         self._gitlab_job_node = gitlab_job_node
+        self.branch = branch
 
     @property
     def creation_time(self) -> datetime:
