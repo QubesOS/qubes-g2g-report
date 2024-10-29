@@ -6,7 +6,7 @@
       body { font-family: sans-serif; }
       td, th { border: solid 2px #dcdcdc; padding: 4px; }
       table { border-collapse: collapse; }
-      .job_time { font-size: small; padding-left: 3px; }
+      .status { text-align: center; }
   </style>
 </head>
 
@@ -34,7 +34,7 @@
                                 N/A
                             {% endif %}
                         </td>
-                        <td rowspan="2">
+                        <td rowspan="2" class="status">
                             {%- if release in val %}
                                 {%- for stage in ['build', 'install', 'repro'] %}
                                     {%- if stage in val[release].keys() %}
@@ -44,9 +44,7 @@
                                     {%- endif %}
                                 {%- endfor %}
                             {%- else %}
-                                {%- for stage in ['build', 'install', 'repro'] %}
-                                    <img src="{{stage}}_unknown.svg" alt="Unknown"/>
-                                {%- endfor %}
+                               No pipeline found
                             {%- endif %}
                         </td>
                     {%- endfor %}
