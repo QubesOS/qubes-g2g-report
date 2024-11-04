@@ -40,7 +40,7 @@
                                     {%- if stage in val[release].keys() %}
                                         <a href="{{val[release][stage]['url']}}"><img src="{{val[release][stage]['badge']}}" alt="{{val[release][stage]['text']}}"/></a>
                                     {%- else %}
-                                    <img src="build_unknown.svg" alt="Unknown"/>
+                                    <img src="{{stage}}_unknown.svg" alt="Unknown"/>
                                     {%- endif %}
                                 {%- endfor %}
                             {%- else %}
